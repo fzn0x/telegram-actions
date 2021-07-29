@@ -1,0 +1,17 @@
+{
+  "name": "telegram-dk",
+  "version": "1.0.0",
+  "description": "My Reference For Telegram Development Use",
+  "scripts": {
+    "test": "ncc build index.js -C -m -o dist"
+  },
+  "author": "fncolon",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "node-telegram-bot-api": "^0.54.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.3"
+  }
+}
