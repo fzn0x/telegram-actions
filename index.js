@@ -41,10 +41,10 @@ message : *${ibody}*
       return `
 [new pull request] ${prstate} 
 
-PR Number:      ${pnum}
-PR Title:       ${ptitle}
-PR Body:        *${pbody}*
-PR By:          ${ghactor}
+PR Number: ${pnum}
+PR Title: ${ptitle}
+PR Body: *${pbody}*
+PR By: ${ghactor}
 
 [Link to Issue](https://github.com/${repo}/pull/${pnum})
 [Link to Repository](https://github.com/${repo}/)
