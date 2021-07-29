@@ -26,55 +26,39 @@ const evresp = (gevent) => {
     //Switch statement for issues
     case "issues":
       return `
-❗️❗️❗️❗️❗️❗️
+        [new issue] ${prstate}
 
-Issue ${prstate}
-
-Issue Title and Number  : ${ititle} | #${inum}
-
-Commented or Created By : \`${iactor}\`
-
-Issue Body : *${ibody}*
-
-[Link to Issue](https://github.com/${repo}/issues/${inum})
-[Link to Repo ](https://github.com/${repo}/)
-[Build log here](https://github.com/${repo}/commit/${sha}/checks)`;
+        title | number  : ${ititle} | #${inum}
+        author : \`${iactor}\`
+        message : *${ibody}*
+        [Link to Issue](https://github.com/${repo}/issues/${inum})
+        [Link to Repository](https://github.com/${repo}/)
+        [Build log](https://github.com/${repo}/commit/${sha}/checks)
+      `;
     // Switch statement for Pull Requests
     case "pull_request":
       return `
-🔃🔀🔃🔀🔃🔀
-PR ${prstate} 
+        [new pull request] ${prstate} 
 
-PR Number:      ${pnum}
+        PR Number:      ${pnum}
+        PR Title:       ${ptitle}
+        PR Body:        *${pbody}*
+        PR By:          ${ghactor}
 
-PR Title:       ${ptitle}
-
-PR Body:        *${pbody}*
-
-PR By:          ${ghactor}
-
-[Link to Issue](https://github.com/${repo}/pull/${pnum})
-[Link to Repo ](https://github.com/${repo}/)
-[Build log here](https://github.com/${repo}/commit/${sha}/checks)`;
+        [Link to Issue](https://github.com/${repo}/pull/${pnum})
+        [Link to Repository](https://github.com/${repo}/)
+        [Build log](https://github.com/${repo}/commit/${sha}/checks)
+      `;
     default:
       // switch statement for Pushes
       return `
-⬆️⇅⬆️⇅
+        [new *${ghevent}*]
 
-ID: ${ghwrkflw}
+        By: *${ghactor}* 
+        Tag: ${process.env.GITHUB_REF}
 
-Action was a *${ipstatus}!*
-
-\`Repository:  ${repo}\` 
-
-On:          *${ghevent}*
-
-By:            *${ghactor}* 
-
-Tag:        ${process.env.GITHUB_REF}
-
-[Link to Repo ](https://github.com/${repo}/)
-            `;
+        [Link to Repository](https://github.com/${repo}/)
+      `;
   }
 };
 // assigning the output to a variable
