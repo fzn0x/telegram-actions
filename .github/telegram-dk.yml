@@ -1,0 +1,20 @@
+name: Github Event Notify Trigger for Telegram
+
+on:
+  push:
+  pull_request:
+    types: [opened, closed]
+  issues:
+    types: [opened, closed, reopened]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Credentials
+        uses: fncolon/telegram-dk@master
+        if: always()
+        with:
+          chat: ${{ secrets.chat }}
+          token: ${{ secrets.token }}
+          status: ${{ job.status }}
